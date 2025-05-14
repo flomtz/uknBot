@@ -1,2 +1,2 @@
 # uknBot
-A discord bot in Python to track User Stats
+A discord bot in Python to track User's UKN Stats
