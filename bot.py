@@ -1,8 +1,10 @@
 import discord
-from discord.ext import commands
+
+from discord import app_commands
+from discord.ext import commands, tasks
 
 from utils.token import get_token
-from commands.ping import ping_command
+from commands.info import info_command
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -22,9 +24,10 @@ async def on_ready():
     except Exception as e:
         print(e)
 
-@client.tree.command(name="ping", description="Ping Pong")
-async def ping(interaction: discord.Interaction):
-    await ping_command(interaction)
+
+@client.tree.command(name="info", description="Information about the Bot")
+async def info(interaction: discord.Interaction):
+    await info_command(interaction)
 
 
 
