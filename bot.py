@@ -5,6 +5,7 @@ from discord.ext import commands, tasks
 
 from utils.token import get_token
 from commands.info import info_command
+from commands.report import report_command
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -28,6 +29,11 @@ async def on_ready():
 @client.tree.command(name="info", description="Information about the Bot")
 async def info(interaction: discord.Interaction):
     await info_command(interaction)
+
+@client.tree.command(name="report", description="Report a Bug/Problem")
+@app_commands.describe(message="Describe your Bug/Problem")
+async def report(interaction: discord.Interaction, message: str):
+    await report_command(interaction, message)
 
 
 
